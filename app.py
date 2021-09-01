@@ -61,5 +61,56 @@ def processPincode():
     
     return responseObj
 
+@app.route("/district", methods=["POST"])
+def processDIscrict():
+    jsonObj = request.get_json()
+    District_id = int(jsonObj['district'])
+    date = jsonObj['date'][8:] + '-' + jsonObj['date'][5:7] + '-' + jsonObj['date'][:4]
+    vaccine = jsonObj['vaccine']
+    dose = jsonObj['dose']
+    age = jsonObj['ageGroup']
+
+    responseObj = dict()
+    response = []
+   
+    r = requests.get(f'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id={District_id}&date={date}', headers=headers)
+
+    sessions = r.json()['sessions']
+
+    for session in sessions:
+        if session['available_capacity'] == 0:
+            continue
+        sessionObj = dict()
+        
+        if vaccine != 'Either' and vaccine != session['vaccine']:
+            continue
+
+        if dose != 'Both' and int(dose[-1]) == 1 and session['available_capacity_dose1'] == 0:
+            continue
+        if dose != 'Both' and int(dose[-1]) == 2 and session['available_capacity_dose2'] == 0:
+            continue
+
+        sessionObj['name'] = session['name']
+        sessionObj['address'] = session['address']
+        sessionObj['min_age_limit'] = session['min_age_limit']
+        sessionObj['from'] = session['from']
+        sessionObj['to'] = session['to']
+        sessionObj['available_capacity_dose1'] = session['available_capacity_dose1']
+        sessionObj['available_capacity_dose2'] = session['available_capacity_dose2']
+        if session['fee_type'] != "Free":
+            sessionObj['fee'] = session['fee']
+        sessionObj['vaccine'] = session['vaccine']
+        sessionObj['slots'] = str(session['slots'])
+
+        response.append(sessionObj)
+
+    responseObj['response'] = response
+    
+    return responseObj
+
+
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)
