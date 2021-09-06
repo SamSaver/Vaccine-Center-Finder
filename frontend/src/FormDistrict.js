@@ -89,73 +89,75 @@ function FormDiscrict(props) {
   };
 
   return (
-    <div className="bg-blue-50 w-screen">
+    <div className="w-screen bg-gradient-to-r from-purple-400 via-yellow-200 to-red-500">
       <div className="mx-auto max-w-2xl py-20 px-12 lg:px-24">
-        <div className="bg-gray-50 rounded-lg p-8 shadow-lg">
-          <form onSubmit={(e) => submitHandler(e)}>
-            <div className="bg-white shadow-md transition-all duration-200 rounded px-8 pt-6 pb-8 mb-4 hover:shadow-xl">
-              <div className="-mx-3 md:flex mb-6">
-                <div className="md:w-full px-3">
-                  <select
-                    onChange={(values) => onChangeState(values)}
-                    className="w-full bg-blue-50 border border-blue-50 text-black text-xs py-3 px-4 pr-8 mb-3 rounded"
-                    id="State"
-                    searchable="true"
-                  >
-                    {stateList.map((states) => (
-                      <option
-                        value={states.state_id}
-                        id={states.state_id}
-                        key={states.state_id}
-                      >
-                        {states.state_name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-              <div className="-mx-3 md:flex mb-6">
-                <div className="md:w-full px-3">
-                  <select
-                    onChange={(values) => onChangeDistrict(values)}
-                    className="w-full bg-blue-50 border border-blue-50 text-black text-xs py-3 px-4 pr-8 mb-3 rounded"
-                    id="State"
-                    searchable="true"
-                  >
-                    {districtList.map((districts) => (
-                      <option
-                        value={districts.district_id}
-                        key={districts.district_id}
-                      >
-                        {districts.district_name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <DateComp onDateChange={onDateChangeHandler} />
-
-              <div className="-mx-3 md:flex mb-2">
-                <Vaccine onVaccineChange={onVaccineChangeHandler} />
-                <Dose onDoseChange={onDoseChangeHandler} />
-                <Age onAgeChange={onAgeChangeHandler} />
-              </div>
-              <div className="-mx-3 md:flex mt-2">
-                <div className=" content-center items-center md:w-full px-3">
-                  <button className=" bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-                    Submit
-                  </button>
-                </div>
+        <form onSubmit={(e) => submitHandler(e)}>
+          <div className="bg-white shadow-md transition-all duration-200 rounded px-8 pt-6 pb-8 mb-4 hover:shadow-xl">
+            <div className="-mx-3 md:flex mb-6">
+              <div className="md:w-full px-3">
+                <label className="tracking-wide text-black text-sm font-bold mb-2">
+                  State <span className="text-red-500">*</span>
+                </label>
+                <select
+                  onChange={(values) => onChangeState(values)}
+                  className="w-full bg-indigo-50 border border-indigo-50 text-black text-xs py-3 px-4 pr-8 mb-3 rounded"
+                  id="State"
+                  searchable="true"
+                >
+                  {stateList.map((states) => (
+                    <option
+                      value={states.state_id}
+                      id={states.state_id}
+                      key={states.state_id}
+                    >
+                      {states.state_name}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
-          </form>
-        </div>
+            <div className="-mx-3 md:flex mb-6">
+              <div className="md:w-full px-3">
+                <label className=" tracking-wide text-black text-sm font-bold mb-2">
+                  District <span className="text-red-500">*</span>
+                </label>
+                <select
+                  onChange={(values) => onChangeDistrict(values)}
+                  className="w-full bg-indigo-50 border border-indigo-50 text-black text-xs py-3 px-4 pr-8 mb-3 rounded"
+                  id="State"
+                  searchable="true"
+                >
+                  {districtList.map((districts) => (
+                    <option
+                      value={districts.district_id}
+                      key={districts.district_id}
+                    >
+                      {districts.district_name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <DateComp onDateChange={onDateChangeHandler} />
+
+            <div className="-mx-3 md:flex mb-2">
+              <Vaccine onVaccineChange={onVaccineChangeHandler} />
+              <Dose onDoseChange={onDoseChangeHandler} />
+              <Age onAgeChange={onAgeChangeHandler} />
+            </div>
+            <div className="flex items-center justify-center mt-6 w-full">
+              <button className=" bg-transparent hover:bg-indigo-700 bg-indigo-500 w-full font-semibold text-white py-2 px-4 border-2 border-indigo-500 hover:border-transparent rounded">
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
 
-      <div className="relative flex flex-col items-center justify-between">
+      <div className="relative flex flex-col bg-gradient-to-r from-purple-400 via-yellow-200 to-red-500 items-center justify-between">
         {queryBool === true && (
-          <h3 className="text-blue-500 font-bold text-2xl mb-4">
+          <h3 className="text-white p-6 bg-green-500 shadow-lg rounded-md font-bold text-2xl mb-4">
             {result.length} VACCINE CENTERS FOUND!
           </h3>
         )}

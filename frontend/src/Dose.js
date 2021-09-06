@@ -8,7 +8,7 @@ function Dose({ onDoseChange }) {
       <div>
         <select
           onChange={(e) => onDoseChange(e)}
-          className="w-full bg-blue-50 border border-blue-50 text-black text-xs py-3 px-4 pr-8 mb-3 rounded"
+          className="w-full bg-indigo-50 border border-indigo-50 text-black text-xs py-3 px-4 pr-8 mb-3 rounded"
           id="dose"
         >
           <option>Both</option>

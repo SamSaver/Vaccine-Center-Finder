@@ -12,7 +12,7 @@ function App() {
   }
 
   return (
-    <div className="bg-blue-50 h-full">
+    <div className="h-full w-full bg-gradient-to-r from-purple-400 via-yellow-200 to-red-500">
       <Header onClick={()=> handleClick()} />
       <Body formSetter={setform_state} form_state={form_state} />
       {/* Footer */}

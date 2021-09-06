@@ -49,18 +49,17 @@ function FormPincode() {
   };
 
   return (
-    <div className="bg-blue-50 w-screen">
+    <div className="w-screen h-full bg-gradient-to-r from-purple-400 via-yellow-200 to-red-500">
       <div className="mx-auto max-w-2xl py-20 px-12 lg:px-24">
-        <div className=' bg-gray-50 rounded-lg p-8 shadow-lg'>
           <form onSubmit={(e) => submitHandler(e)}>
             <div className="bg-white shadow-md transition-all duration-200 rounded-2xl px-8 pt-6 pb-8 mb-4 hover:shadow-xl">
               <div className="-mx-3 md:flex mb-6">
                 <div className="md:w-full px-3">
-                  <label className=" tracking-wide text-black text-xs font-bold mb-2">
+                  <label className=" tracking-wide text-black text-sm font-bold mb-2">
                     Pincode <span className="text-red-500">*</span>
                   </label>
                   <input
-                    className="w-full bg-blue-50 text-black border border-blue-50 rounded py-3 px-4 mb-3"
+                    className="w-full bg-indigo-50 focus:border-indigo-500 outline-none text-black border-2 border-indigo-50 rounded py-3 px-4 mb-3"
                     id="pincode"
                     type="number"
                     min={100000}
@@ -85,21 +84,18 @@ function FormPincode() {
                 <Dose onDoseChange={onDoseChangeHandler} />
                 <Age onAgeChange={onAgeChangeHandler} />
               </div>
-              <div className="-mx-3 md:flex mt-2">
-                <div className=" content-center items-center md:w-full px-3">
-                  <button className=" bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+              <div className="flex items-center mt-6 justify-center w-full">
+                  <button className=" bg-transparent hover:bg-indigo-700 bg-indigo-500 w-full font-semibold text-white py-2 px-4 border-2 border-indigo-500 hover:border-transparent rounded">
                     Submit
                   </button>
-                </div>
               </div>
             </div>
           </form>
-        </div>
       </div>
 
-      <div className="relative flex flex-col items-center justify-between">
+      <div className="relative flex flex-col bg-gradient-to-r from-purple-400 via-yellow-200 to-red-500 items-center justify-between">
         {queryBool === true && (
-          <h3 className="text-blue-500 font-bold text-2xl mb-4">
+          <h3 className="text-white p-6 bg-green-500 shadow-lg rounded-md font-bold text-2xl mb-4">
             {result.length} VACCINE CENTERS FOUND!
           </h3>
         )}

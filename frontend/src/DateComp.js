@@ -14,8 +14,8 @@ function DateComp({onDateChange}) {
 
   return (
     <div className="mt-8 mb-8">
-      <label className="block text-black text-xs font-bold">Date <span className='text-red-500'>*</span> </label>
-      <div className="mt-1 focus:ring-blue-500 focus:border-blue-500 block sm:text-md border-blue-50 rounded-md items-center">
+      <label className="block text-black text-sm font-bold">Date <span className='text-red-500'>*</span> </label>
+      <div className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block sm:text-md border-indigo-50 rounded-md items-center">
         <input
           type="date"
           name="date"
@@ -23,7 +23,7 @@ function DateComp({onDateChange}) {
           min={today}
           required
           onChange={(e) => onDateChange(e)}
-          className=" focus:ring-blue-500 focus:border-blue-500 block sm:text-md border-blue-50 rounded-md items-center"
+          className=" focus:ring-indigo-500 p-2 outline-none bg-indigo-50 border-2 focus:border-indigo-500 block sm:text-md border-indigo-50 rounded-md items-center"
         />
       </div>
     </div>

@@ -7,7 +7,7 @@ function Vaccine({onVaccineChange}) {
 
       <div>
         <select
-          className="w-full bg-blue-50 border border-blue-50 text-black text-xs py-3 px-4 pr-8 mb-3 rounded"
+          className="w-full bg-indigo-50 border border-indigo-50 text-black text-xs py-3 px-4 pr-8 mb-3 rounded"
           name="vac"
           id="vaccine"
           onChange = {(e) => onVaccineChange(e)}
