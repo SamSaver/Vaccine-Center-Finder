@@ -89,10 +89,10 @@ function FormDiscrict(props) {
   };
 
   return (
-    <div className="w-screen bg-gradient-to-r from-purple-400 via-yellow-200 to-red-500">
+    <div className="w-screen bg-blue-50">
       <div className="mx-auto max-w-2xl py-20 px-12 lg:px-24">
         <form onSubmit={(e) => submitHandler(e)}>
-          <div className="bg-white shadow-md transition-all duration-200 rounded px-8 pt-6 pb-8 mb-4 hover:shadow-xl">
+          <div className="bg-white shadow-md transition-all duration-200 rounded-2xl px-8 pt-6 pb-8 mb-4 hover:shadow-xl">
             <div className="-mx-3 md:flex mb-6">
               <div className="md:w-full px-3">
                 <label className="tracking-wide text-black text-sm font-bold mb-2">
@@ -155,7 +155,7 @@ function FormDiscrict(props) {
         </form>
       </div>
 
-      <div className="relative flex flex-col bg-gradient-to-r from-purple-400 via-yellow-200 to-red-500 items-center justify-between">
+      <div className="relative flex flex-col bg-blue-50 items-center justify-between">
         {queryBool === true && (
           <h3 className="text-white p-6 bg-green-500 shadow-lg rounded-md font-bold text-2xl mb-4">
             {result.length} VACCINE CENTERS FOUND!
