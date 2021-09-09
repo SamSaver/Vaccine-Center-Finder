@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory, render_template, request, redirect
+from flask import Flask, request
 import requests
 from flask_cors import CORS #comment this on deployment
 
@@ -7,12 +7,8 @@ headers = {
    Chrome/56.0.2924.87 Safari/537.36'
 }
 
-app = Flask(__name__, static_url_path='', static_folder='frontend/public')
+app = Flask(__name__)
 CORS(app) #comment this on deployment
-
-@app.route("/give_me_message")
-def home():
-    return "Hello Sammy!"
 
 @app.route("/pincode", methods=["POST"])
 def processPincode():
@@ -25,7 +21,6 @@ def processPincode():
 
     responseObj = dict()
     response = []
-    print('before req')
     r = requests.get(f"https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode={pincode}&date={date}", headers=headers)
 
     sessions = r.json()['sessions']

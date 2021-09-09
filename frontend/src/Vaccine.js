@@ -16,6 +16,7 @@ function Vaccine({onVaccineChange}) {
           <option>Either</option>
           <option>COVISHIELD</option>
           <option>COVAXIN</option>
+          <option>SPUTNIK V</option>
         </select>
       </div>
     </div>

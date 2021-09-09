@@ -1,6 +1,6 @@
 # Vaccination Center Finder App
 
-This is a interactive application that let's you find vaccination centers around you by pincode or by district.
+This is a interactive application that let's you find vaccination centers around you by pincode or by district. Also it gives available slots for all the centers found
 
 ## How To Run The App
 
