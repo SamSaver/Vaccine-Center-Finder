@@ -28,12 +28,12 @@ In second Terminal:
 Now open new terminal in the same working directory and type the following commands:
 
 command: cd frontend
+command: npm install
 command: npm run start
-
-
-NOTE: If something goes wrong, then try running "npm install" in the "frontend directory".
 
 Then app will be running locally on localhost port number 3000.
 Type the following link on your browser address bar.
 link: http://localhost:3000/
+____________________________________________________
+Github Repository: https://github.com/SamSaver/Vaccine-Center-Finder
 
